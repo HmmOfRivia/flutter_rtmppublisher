@@ -75,7 +75,7 @@ class Camera(
         val characteristics = cameraManager.getCameraCharacteristics(cameraName)
         isFrontFacing = characteristics.get(CameraCharacteristics.LENS_FACING) == CameraMetadata.LENS_FACING_FRONT
         sensorOrientation = characteristics.get(CameraCharacteristics.SENSOR_ORIENTATION)
-        currentOrientation = Math.round(activity.resources.configuration.orientation / 90.0).toInt() * 90
+        currentOrientation = 0
         val preset = ResolutionPreset.valueOf(resolutionPreset!!)
         recordingProfile = CameraUtils.getBestAvailableCamcorderProfileForResolutionPreset(cameraName, preset)
 
@@ -127,7 +127,7 @@ class Camera(
                 reply["previewWidth"] = previewSize.height
                 reply["previewHeight"] = previewSize.width
             }
-            reply["previewQuarterTurns"] = currentOrientation / 90
+            reply["previewQuarterTurns"] = 0
             Log.i(TAG, "open: width: " + reply["previewWidth"] + " height: " + reply["previewHeight"] + " currentOrientation: " + currentOrientation + " quarterTurns: " + reply["previewQuarterTurns"])
             result.success(reply)
         }, 500)
@@ -577,7 +577,7 @@ class Camera(
                 -currentOrientation
             else
                 currentOrientation
-            return (sensorOrientationOffset + sensorOrientation + 360) % 360
+            return 0
         }
 
     private val isPortrait: Boolean

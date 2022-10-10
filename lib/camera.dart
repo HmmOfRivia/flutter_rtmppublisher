@@ -370,7 +370,7 @@ class CameraController extends ValueNotifier<CameraValue> {
           reply['previewWidth'].toDouble(),
           reply['previewHeight'].toDouble(),
         ),
-        previewQuarterTurns: reply['previewQuarterTurns'],
+        previewQuarterTurns: 0,
       );
     } on PlatformException catch (e) {
       throw CameraException(e.code, e.message);
@@ -437,10 +437,6 @@ class CameraController extends ValueNotifier<CameraValue> {
         break;
       case 'rtmp_stopped':
         value = value.copyWith(isStreamingVideoRtmp: false);
-        break;
-      case 'rotation_update':
-        value = value.copyWith(
-            previewQuarterTurns: int.parse(event['errorDescription']));
         break;
     }
   }

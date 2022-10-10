@@ -24,7 +24,7 @@ class CameraInfo implements CameraDescriptionNew {
   factory CameraInfo.fromMap(Map<String, dynamic> map) {
     return CameraInfo(
       id: map['id'],
-      orientation: map['orientation'],
+      orientation: 0,
       facing: Facing.values.firstWhere(
         (Facing facing) => facing.toString() == map['facing'],
       ),

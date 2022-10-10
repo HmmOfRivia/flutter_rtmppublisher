@@ -185,7 +185,7 @@ class MethodCallHandlerImplNew(
             reply["textureId"] = textureId
             reply["previewWidth"] = previewSize.width
             reply["previewHeight"] = previewSize.height
-            reply["previewQuarterTurns"] = currentOrientation / 90
+            reply["previewQuarterTurns"] = 0
             Log.i("TAG", "open: width: " + reply["previewWidth"] + " height: " + reply["previewHeight"] + " currentOrientation: " + currentOrientation + " quarterTurns: " + reply["previewQuarterTurns"])
             // TODO Refactor cameraView initialisation
             nativeViewFactory?.cameraName = cameraName
